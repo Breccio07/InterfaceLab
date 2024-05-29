@@ -1,9 +1,9 @@
-from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QMainWindow, QApplication, QPushButton, QTableWidget, QTableWidgetItem, QLabel, QLineEdit
 from PyQt5 import uic
 import sys
- 
 
- 
+
+
 class UI(QMainWindow):
     
     def __init__(self):
@@ -22,8 +22,16 @@ class UI(QMainWindow):
         self.table.setRowCount(5)
         self.table.setHorizontalHeaderLabels(["Nome","Cognome","Ore"])
         
+        self.lNome = self.findChild(QLabel, "lNome")
+        self.lCognome = self.findChild(QLabel, "lCognome")
+        self.lOre = self.findChild(QLabel, "lOre")
+        
+        self.line_Nome = self.findChild(QLineEdit, "Line_Nome")
+        self.line_Cognome = self.findChild(QLineEdit, "Line_Cognome")
+        self.line_Ore = self.findChild(QLineEdit, "Line_Ore")
         
         self.show()
+            
         
     def clickedBtn(self):
         
@@ -42,9 +50,9 @@ class UI(QMainWindow):
            self.table.setItem(riga, 2, item_oreP)
            
            riga = riga+1
-           
-           
-           
+        
+        
+        
 app = QApplication(sys.argv)
 window = UI()
 app.exec_()
